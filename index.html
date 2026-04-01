@@ -3,35 +3,119 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe Game</title>
+    <title>Offer Letter Portal</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            text-align: center;
+            margin: 0;
+        }
+        
+        header {
+            background: #1a73e8;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .container {
+            margin-top: 80px;
+        }
+        
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        button {
+            padding: 12px 25px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        #loading,
+        #monkey,
+        #fool {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        #loading {
+            font-size: 20px;
+            color: #555;
+        }
+        
+        #monkey img {
+            width: 250px;
+            border-radius: 12px;
+        }
+        
+        #fool {
+            font-size: 30px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<link rel="stylesheet" href="./style.css">
 
 <body>
-    <main>
-        <h1>Tic-Tac-Toe </h1>
-        <div class="container">
-            <div class="game">
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
+
+    <header>Global Tech Careers Portal</header>
+
+    <div class="container">
+        <div class="card">
+            <h2>🎉 Congratulations!</h2>
+            <p>You have been selected for the jr intern position.</p>
+            <p>Click below to generate your official offer letter.</p>
+
+            <button onclick="startPrank()">Generate Offer Letter</button>
+
+            <div id="loading">⏳ Generating your offer letter...</div>
+
+            <div id="monkey">
+                <img src="./monkey.jpg">
             </div>
+
+            <div id="fool">😂 APRIL FOOL 😂</div>
         </div>
-        <button id="reset-btn">Rest Game</button>
+    </div>
 
-    </main>
+    <!-- Sound -->
+    <audio id="laughSound" src="./audio.mp3"></audio>
 
+    <script>
+        function startPrank() {
+            document.getElementById("loading").style.display = "block";
 
+            // Step 1: Loading
+            setTimeout(() => {
+                document.getElementById("loading").style.display = "none";
 
+                // Step 2: Monkey
+                document.getElementById("monkey").style.display = "block";
+
+                // Play sound
+                document.getElementById("laughSound").play();
+
+                // Step 3: April Fool
+                setTimeout(() => {
+                    document.getElementById("fool").style.display = "block";
+                }, 2000);
+
+            }, 2000);
+        }
+    </script>
 
 </body>
-<script src="./app.js"></script>
 
 </html>
